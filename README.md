@@ -6,10 +6,17 @@ A single-page static site for Pujye — no build step, no dependencies. Just HTM
 
 ```
 pujye-site/
-├── index.html      ← the entire site (structure, styles, and copy)
+├── index.html       ← Home
+├── shop.html        ← Full product catalogue
+├── story.html        ← Our Story (founders + brand story)
+├── track.html        ← Track Order (lookup form, not yet connected to real orders)
+├── contact.html       ← Contact form + bulk/distributor info
 └── assets/
-    └── logo.png     ← your Pujye logo, used in the nav, hero, and footer
+    ├── logo.png       ← your Pujye logo
+    └── styles.css      ← shared design system used by every page
 ```
+
+All five pages share one stylesheet (`assets/styles.css`), so any color, font, or spacing change you make there updates the whole site at once.
 
 ## Before you go live
 

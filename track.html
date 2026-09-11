@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Track Order — Pujye</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<header>
+  <div class="navwrap">
+    <a href="index.html" class="brandmark"><img src="assets/logo.png" alt="Pujye"></a>
+    <nav class="links">
+      <a href="shop.html">Shop</a>
+      <a href="story.html">Our Story</a>
+      <a href="track.html">Track Order</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="shop.html" class="navcta">Shop Incense</a>
+    <button class="navtoggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="page-hero-eyebrow">Order Status</div>
+    <h1>Track your order.</h1>
+    <p>Enter your order ID and the email or phone number used at checkout to see the latest status.</p>
+  </div>
+</section>
+
+<section class="form-section grain">
+  <div class="wrap">
+    <div class="form-panel">
+      <form id="trackForm">
+        <div class="field">
+          <label for="orderId">Order ID</label>
+          <input type="text" id="orderId" placeholder="e.g. PUJ-10234" required>
+        </div>
+        <div class="field">
+          <label for="contactInfo">Email or Phone Number</label>
+          <input type="text" id="contactInfo" placeholder="Used at checkout" required>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%; border:none; cursor:pointer;">Track Order</button>
+      </form>
+      <div class="track-result" id="trackResult">
+        Order tracking isn't connected yet — once Pujye's store goes live, this will show real-time status. For now, reach us directly on <a href="contact.html" style="color:var(--gold); text-decoration:underline;">Contact</a> with your order details.
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="index.html" class="brandmark"><img src="assets/logo.png" alt="Pujye" style="height:32px;"></a>
+        <p>Sacred rituals, thoughtfully crafted. Incense and pooja essentials made in Jhansi, Uttar Pradesh.</p>
+      </div>
+      <div>
+        <h6>Shop</h6>
+        <ul>
+          <li><a href="shop.html">Incense & Dhoop</a></li>
+          <li><a href="shop.html">Temple & Pooja Essentials</a></li>
+          <li><a href="shop.html">Lifestyle & Ambient Aromas</a></li>
+        </ul>
+      </div>
+      <div>
+        <h6>Company</h6>
+        <ul>
+          <li><a href="story.html">Our Story</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="track.html">Track Order</a></li>
+        </ul>
+      </div>
+      <div>
+        <h6>Follow</h6>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Pujye. All rights reserved.</span>
+      <span>Made in Jhansi, Uttar Pradesh</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('trackForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('trackResult').classList.add('show');
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Pujye</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<header>
+  <div class="navwrap">
+    <a href="index.html" class="brandmark"><img src="assets/logo.png" alt="Pujye"></a>
+    <nav class="links">
+      <a href="shop.html">Shop</a>
+      <a href="story.html">Our Story</a>
+      <a href="track.html">Track Order</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="shop.html" class="navcta">Shop Incense</a>
+    <button class="navtoggle" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="page-hero-eyebrow">Get in Touch</div>
+    <h1>Questions, bulk orders,<br>or just say hello.</h1>
+    <p>Whether you're a customer, a distributor, or curious about Pujye — we'd like to hear from you.</p>
+  </div>
+</section>
+
+<section class="form-section grain">
+  <div class="wrap">
+    <div class="form-panel wide">
+      <div class="form-inner">
+        <form id="contactForm">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" required>
+          </div>
+          <div class="field">
+            <label for="reason">Reason for contact</label>
+            <input type="text" id="reason" placeholder="e.g. Bulk / distributor enquiry, general question">
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%; border:none; cursor:pointer;">Send Message</button>
+        </form>
+        <p id="contactConfirm" style="display:none; margin-top:18px; font-size:13.5px; color:var(--ink-soft);">Thank you — your message has been noted. We'll get back to you soon.</p>
+      </div>
+      <div class="info-inner">
+        <h3>Reach Pujye directly</h3>
+        <div class="info-row">
+          <span class="k">Location</span>
+          <span class="v">Jhansi, Uttar Pradesh, India</span>
+        </div>
+        <div class="info-row">
+          <span class="k">For Distributors</span>
+          <span class="v">Ask about wholesale pricing on the Incense Stick Packet, Dhoopbatti, and 14-Day Ritual Box.</span>
+        </div>
+        <div class="info-row">
+          <span class="k">Follow</span>
+          <span class="v">Instagram · WhatsApp (links coming soon)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="index.html" class="brandmark"><img src="assets/logo.png" alt="Pujye" style="height:32px;"></a>
+        <p>Sacred rituals, thoughtfully crafted. Incense and pooja essentials made in Jhansi, Uttar Pradesh.</p>
+      </div>
+      <div>
+        <h6>Shop</h6>
+        <ul>
+          <li><a href="shop.html">Incense & Dhoop</a></li>
+          <li><a href="shop.html">Temple & Pooja Essentials</a></li>
+          <li><a href="shop.html">Lifestyle & Ambient Aromas</a></li>
+        </ul>
+      </div>
+      <div>
+        <h6>Company</h6>
+        <ul>
+          <li><a href="story.html">Our Story</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="track.html">Track Order</a></li>
+        </ul>
+      </div>
+      <div>
+        <h6>Follow</h6>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Pujye. All rights reserved.</span>
+      <span>Made in Jhansi, Uttar Pradesh</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('contactConfirm').style.display = 'block';
+    this.reset();
+  });
+</script>
+
+</body>
+</html>
