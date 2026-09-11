@@ -200,10 +200,29 @@
   <div class="wrap">
     <h3>Be first to know when we launch.</h3>
     <p>No spam — just early access to Pujye's first collection.</p>
-    <form class="nform" onsubmit="event.preventDefault(); this.querySelector('input').value='Thank you — you\'re on the list.';">
-      <input type="email" placeholder="Your email address" required>
+    <form class="nform" id="notifyForm">
+      <input type="email" name="email" placeholder="Your email address" required>
       <button type="submit" class="btn-primary">Notify Me</button>
     </form>
+    <script>
+      document.getElementById('notifyForm').addEventListener('submit', function(e){
+        e.preventDefault();
+        var form = e.target;
+        var input = form.querySelector('input');
+        var btn = form.querySelector('button');
+        btn.disabled = true;
+        fetch('https://formspree.io/f/moeqrrvw', {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        }).then(function(response){
+          input.value = '';
+          input.placeholder = response.ok ? "Thank you — you're on the list." : "Something went wrong — try again.";
+        }).catch(function(){
+          input.placeholder = "Something went wrong — try again.";
+        }).finally(function(){ btn.disabled = false; });
+      });
+    </script>
   </div>
 </section>
 

@@ -39,21 +39,21 @@
         <form id="contactForm">
           <div class="field">
             <label for="name">Name</label>
-            <input type="text" id="name" required>
+            <input type="text" id="name" name="name" required>
           </div>
           <div class="field">
             <label for="email">Email</label>
-            <input type="email" id="email" required>
+            <input type="email" id="email" name="email" required>
           </div>
           <div class="field">
             <label for="reason">Reason for contact</label>
-            <input type="text" id="reason" placeholder="e.g. Bulk / distributor enquiry, general question">
+            <input type="text" id="reason" name="reason" placeholder="e.g. Bulk / distributor enquiry, general question">
           </div>
           <div class="field">
             <label for="message">Message</label>
-            <textarea id="message" rows="5" required></textarea>
+            <textarea id="message" name="message" rows="5" required></textarea>
           </div>
-          <button type="submit" class="btn-primary" style="width:100%; border:none; cursor:pointer;">Send Message</button>
+          <button type="submit" id="contactSubmit" class="btn-primary" style="width:100%; border:none; cursor:pointer;">Send Message</button>
         </form>
         <p id="contactConfirm" style="display:none; margin-top:18px; font-size:13.5px; color:var(--ink-soft);">Thank you — your message has been noted. We'll get back to you soon.</p>
       </div>
@@ -117,8 +117,32 @@
 <script>
   document.getElementById('contactForm').addEventListener('submit', function(e){
     e.preventDefault();
-    document.getElementById('contactConfirm').style.display = 'block';
-    this.reset();
+    const form = e.target;
+    const btn = document.getElementById('contactSubmit');
+    const confirmMsg = document.getElementById('contactConfirm');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    fetch('https://formspree.io/f/moeqrrvw', {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        confirmMsg.textContent = "Thank you — your message has been sent. We'll get back to you soon.";
+        confirmMsg.style.display = 'block';
+        form.reset();
+      } else {
+        confirmMsg.textContent = "Something went wrong — please email us directly instead.";
+        confirmMsg.style.display = 'block';
+      }
+    }).catch(() => {
+      confirmMsg.textContent = "Something went wrong — please email us directly instead.";
+      confirmMsg.style.display = 'block';
+    }).finally(() => {
+      btn.textContent = 'Send Message';
+      btn.disabled = false;
+    });
   });
 </script>
 
