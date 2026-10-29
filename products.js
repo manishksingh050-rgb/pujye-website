@@ -10,11 +10,11 @@ window.BANNERS = [
 window.PRODUCTS = [
   {
     id: "licence-stick",
-    n: "Licence Stick Incense",
+    n: "Ghar Soaps Magic De-Tan Face wash",
     c: "fragrance",
-    p: 10,
-    v: "Packet of 10 to 12 sticks",
-    d: "An everyday incense packet for the daily pooja routine.",
+    p: 100ml,
+    v: "1",
+    d: "Tan Removal, Brightening and Glowing Skin I For All Skin Type Skin.",
     img: "assets/Products/licence-stick-1.jpg"
   },
   {
