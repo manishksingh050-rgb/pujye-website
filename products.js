@@ -11,7 +11,7 @@ window.PRODUCTS = [
     p: 10,
     v: "Packet of 10 to 12 sticks",
     d: "An everyday incense packet for the daily pooja routine.",
-    img: ""
+    img: "assets/products/licence-stick-1.jpg"
   },
   {
     id: "clay-dhoop",
