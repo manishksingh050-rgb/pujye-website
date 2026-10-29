@@ -2,7 +2,11 @@
 // To ADD a product: copy one block from "{" to "}," and paste it below the last block.
 // To REMOVE a product: delete its block.
 // Use only plain text. Do not put a straight " inside the text.
-
+   
+window.BANNERS = [
+     { img: "assets/Banners/banner1.jpg", mimg: "assets/Banners/banner1-mobile.jpg", alt: "Describe the banner", link: "#shop" },
+     { img: "assets/Banners/banner2.jpg", alt: "Describe the banner", link: "#story" }
+   ];
 window.PRODUCTS = [
   {
     id: "licence-stick",
