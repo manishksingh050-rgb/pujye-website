@@ -85,7 +85,7 @@ footer h3{font-size:1rem;font-family:var(--sn);font-weight:600}
 <script>
 const ANN="Prototype build: product details, prices and availability are placeholders until confirmed.";
 const CATS=[{id:"personal",n:"Personal Care",d:"Planned"},{id:"home",n:"Home Care",d:"Planned"},{id:"wellness",n:"Ayurvedic Wellness",d:"Planned"},{id:"fragrance",n:"Natural Fragrance & Incense",d:"Demo listings",live:1},{id:"essentials",n:"Everyday Essentials",d:"Planned"}];
-const PR=window.PRODUCTS||[];
+const PERR=!Array.isArray(window.PRODUCTS);const PR=PERR?[]:window.PRODUCTS;
 CATS.forEach(c=>c.live=PR.some(p=>p.c===c.id));
 const J=[
 {id:"1",n:"How to burn incense safely at home",c:"Home care",d:"Placement, airflow and ash: the simple basics.",b:["Sample article. Place incense on a stable, non-flammable holder, away from curtains, paper and children.","Keep the room ventilated and never leave burning incense unattended. Extinguish fully before leaving."]},
@@ -97,9 +97,10 @@ const save=()=>{try{localStorage.setItem("pj",JSON.stringify(cart))}catch(e){}};
 const byId=id=>PR.find(p=>p.id===id);
 const ph=()=>`<div class="ph" role="img" aria-label="Temporary placeholder, product photograph to come"><svg viewBox="0 0 100 100" width="100%" height="100%" fill="none" stroke="var(--au)" stroke-width=".6"><path d="M40 90L46 30M50 90L50 22M60 90L54 34"/><path class="smoke" d="M46 28c-6-8 6-12 0-20M50 20c-6-8 6-12 0-18M54 32c6-8-6-12 0-20"/></svg><small>Photograph to come</small></div>`;
 const stT=p=>({stock:"In stock",soon:"Coming soon",out:"Out of stock"})[p.st]||"Demo listing, availability to be confirmed";
+function noimg(i){console.warn("PUJYE: image not found: "+i.getAttribute("src"));i.parentNode.outerHTML=ph()}
 const imgs=p=>[].concat(p.imgs||p.img||[]);
-const pic=p=>{const a=imgs(p);return a.length?`<div class="ph"><img src="${a[0]}" alt="${p.n}" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>`:ph()};
-const gal=p=>{const a=imgs(p);return a.length?`<div class="ph"><img src="${a[0]}" alt="${p.n}" id="gm" style="width:100%;height:100%;object-fit:cover"></div>${a.length>1?`<div style="display:flex;gap:8px;margin-top:8px">${a.map(u=>`<img src="${u}" alt="" width="64" height="64" data-sw="${u}" style="object-fit:cover;cursor:pointer;border:1px solid var(--ln)">`).join("")}</div>`:""}`:ph()};
+const pic=p=>{const a=imgs(p);return a.length?`<div class="ph"><img src="${a[0]}" alt="${p.n}" loading="lazy" onerror="noimg(this)" style="width:100%;height:100%;object-fit:cover"></div>`:ph()};
+const gal=p=>{const a=imgs(p);return a.length?`<div class="ph"><img src="${a[0]}" alt="${p.n}" id="gm" onerror="noimg(this)" style="width:100%;height:100%;object-fit:cover"></div>${a.length>1?`<div style="display:flex;gap:8px;margin-top:8px">${a.map(u=>`<img src="${u}" alt="" width="64" height="64" data-sw="${u}" onerror="this.remove()" style="object-fit:cover;cursor:pointer;border:1px solid var(--ln)">`).join("")}</div>`:""}`:ph()};
 const buy=p=>p.st==="soon"||p.st==="out";
 const card=p=>`<article class="card"><a href="#p-${p.id}" tabindex="-1">${pic(p)}</a><span class="badge">${stT(p).split(",")[0]}</span><h3><a href="#p-${p.id}">${p.n}</a></h3><p>${p.d}</p><p class="m">${p.v}. MRP ₹${p.p}${p.conf?"":" (placeholder)"}</p><button class="btn o" data-add="${p.id}"${buy(p)?" disabled":""}>${buy(p)?stT(p):p.conf?"Add to bag":"Add to demo bag"}</button></article>`;
 const foot=PR.some(p=>!p.conf)?'<p class="m">Prices shown are placeholders pending confirmation.</p>':"";
@@ -142,7 +143,7 @@ function grid(){const q=$("#fq").value.toLowerCase(),c=$("#fc").value,mp=+$("#fp
 let l=PR.filter(p=>(!q||(p.n+p.d).toLowerCase().includes(q))&&(c==="all"||p.c===c)&&(!mp||p.p<=mp)&&(a==="all"||p.st===a));
 if(s==="l")l.sort((x,y)=>x.p-y.p);if(s==="h")l.sort((x,y)=>y.p-x.p);
 $("#cnt").textContent=l.length+(l.length===1?" product":" products");
-$("#gr").innerHTML=l.length?l.map(card).join(""):`<div class="ok" style="grid-column:1/-1">No products match these filters. ${c!=="all"&&!PR.some(p=>p.c===c)?"This category is in development. ":""}Clear a filter to see what is available.</div>`}
+$("#gr").innerHTML=l.length?l.map(card).join(""):`<div class="ok" style="grid-column:1/-1">${PERR?"The product list could not be loaded. Check that products.js is in the same folder as index.html and has no typing mistakes. ":"No products match these filters. "}${c!=="all"&&!PR.some(p=>p.c===c)?"This category is in development. ":""}Clear a filter to see what is available.</div>`}
 function jl(){const q=$("#jq").value.toLowerCase(),c=$("#jc").value,l=J.filter(a=>(!c||a.c===c)&&(!q||(a.n+a.d).toLowerCase().includes(q)));$("#jl").innerHTML=l.length?l.map(jCard).join(""):'<div class="ok">No articles match. Try a different search.</div>'}
 const em=v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 function nsub(e){e.preventDefault();const v=$("#ne").value.trim(),er=$("#nerr");er.textContent="";$("#nok").innerHTML="";
