@@ -5,7 +5,7 @@
    
 window.BANNERS = [
      { img: "assets/Banners/banner1.jpg", mimg: "assets/Banners/banner1-mobile.jpg", alt: "Describe the banner", link: "#shop" },
-     { img: "assets/Banners/banner2.jpg", alt: "Describe the banner", link: "#story" }
+     { img: "assets/Banners/banner2.jpg", mimg: "assets/Banners/banner2-mobile.jpg", alt: "Describe the banner", link: "#story" }
    ];
 window.PRODUCTS = [
   {
