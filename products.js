@@ -5,10 +5,10 @@
 
 window.PRODUCTS = [
   {
-    id: "licence-stick",
+    id: "Ghar Soaps Magic De-Tan Face wash I With Sandalwood ,Saffron & Glutathione | Tan Removal, Brightening and Glowing Skin I For All Skin Type Skin I For Man & Women | 100ml",
     n: "Licence Stick Incense",
     c: "fragrance",
-    p: 10,
+    p: 100ML,
     v: "Packet of 10 to 12 sticks",
     d: "An everyday incense packet for the daily pooja routine.",
     img: "assets/Products/licence-stick-1.jpg"
