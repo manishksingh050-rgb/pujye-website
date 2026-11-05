@@ -10,28 +10,28 @@ window.BANNERS = [
 window.PRODUCTS = [
   {
     id: "licence-stick",
-    n: "Licence Stick Incense",
+    n: "Comming soon",
     c: "fragrance",
-    p: 10,
-    v: "Packet of 10 to 12 sticks",
+    p: **,
+    v: "Packet",
     d: "An everyday incense packet for the daily pooja routine.",
     img: "assets/Products/licence-stick-1.jpg"
   },
   {
     id: "clay-dhoop",
-    n: "Clay Dhoop Batti",
+    n: " coming soon",
     c: "fragrance",
-    p: 10,
-    v: "25 to 30 g",
+    p: **,
+    v: "Packet",
     d: "Hand-shaped dhoop for pooja and quiet evenings.",
     img: ""
   },
   {
     id: "14-day-box",
-    n: "14-Day Agarbatti Box",
+    n: "comming soon",
     c: "fragrance",
-    p: 50,
-    v: "40 to 45 sticks, two per day",
+    p: **,
+    v: "Packet",
     d: "A fortnight of daily incense in one box.",
     img: ""
   }
