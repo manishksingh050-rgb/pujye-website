@@ -2,12 +2,12 @@
 // Every line in a block ends with a comma, except the last line.
 // Never type ** or leave a price empty. To hide a price, delete the whole "p:" line.
 
-// Home page banners. Remove the two slashes at the start of each line
-// ONLY after you have uploaded the banner images to assets/Banners.
-// window.BANNERS = [
-//   { img: "assets/Banners/banner1.jpg", mimg: "assets/Banners/banner1-mobile.jpg", alt: "Describe the banner", link: "#shop" },
-//   { img: "assets/Banners/banner2.jpg", mimg: "assets/Banners/banner2-mobile.jpg", alt: "Describe the banner", link: "#story" }
-// ];
+// Home page banners. Upload the images to the folder assets/Banners first.
+// If an image is missing, the site shows a PUJYE text slide instead.
+window.BANNERS = [
+  { img: "assets/Banners/banner1.jpg", alt: "Describe the banner", link: "#shop" },
+  { img: "assets/Banners/banner2.jpg", alt: "Describe the banner", link: "#story" }
+];
 
 window.PRODUCTS = [
   {
