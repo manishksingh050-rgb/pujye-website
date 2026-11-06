@@ -8,7 +8,15 @@ window.BANNERS = [
   { img: "assets/Banners/banner1.jpg", mimg: "assets/Banners/banner1-mobile.jpg", alt: "Describe the banner", link: "#shop" },
   { img: "assets/Banners/banner2.jpg", mimg: "assets/Banners/banner2-mobile.jpg", alt: "Describe the banner", link: "#story" }
 ];
-
+window.SITE = {
+  countdown: {
+    to: "2027-02-02T10:00:00+05:30",
+    text: "First product launches in",
+    link: "#shop",
+    cta: "See products",
+    done: "available Soon"
+  }
+};
 window.PRODUCTS = [
   {
     id: "licence-stick",
