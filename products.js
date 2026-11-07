@@ -4,9 +4,19 @@
 
 // Home page banners. Upload the images to the folder assets/Banners first.
 // If an image is missing, the site shows a PUJYE text slide instead.
-window.DOCTORS = [
-  { n: "Dr FULL NAME", q: "BAMS", sp: "Specialisation", exp: "5 years", reg: "Registration no. and council", img: "assets/Doctors/name.jpg" }
-];
+   window.DOCTORS = [
+     {
+       n: "Dr Full Name",
+       q: "BAMS",
+       sp: "Specialisation",
+       exp: "5 years",
+       lang: "Hindi, English",
+       reg: "Registration no. and council",
+       fee: 300,
+       slots: ["Mon 6 to 7 PM", "Wed 6 to 7 PM"],
+       img: "assets/Doctors/name.jpg"
+     }
+   ];
 window.STORY = {
   title: "The people behind PUJYE",
   paras: [
@@ -27,6 +37,7 @@ window.BANNERS = [
   { img: "assets/Banners/banner2.jpg", mimg: "assets/Banners/banner2-mobile.jpg", alt: "Describe the banner", link: "#story" }
 ];
 window.SITE = {
+   supabase: { url: "https://pnqwjikudtadgzwakckl.supabase.co", key: "sb_publishable_cCwGscJgenxKg4y7H2tAGQ_LKNzYsin" }
   countdown: {
     to: "2027-02-02T10:00:00+05:30",
     text: "First product launches in",
