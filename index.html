@@ -99,6 +99,7 @@ footer h3{font-size:1rem;font-family:var(--sn);font-weight:600}
 <div><h3>PUJYE</h3><a href="#story">Our Story</a><a href="#quality">Ingredients &amp; Quality</a><a href="#contact">Contact</a></div>
 <div><h3>Policies</h3><a href="#policy">Shipping and returns</a><a href="#policy">Privacy policy</a><a href="#policy">Terms and conditions</a><a href="#policy">Refund policy</a></div>
 </div><p class="m" style="margin-top:32px;color:inherit;opacity:.7">© PUJYE.</p></div></footer>
+<script>window.addEventListener("error",function(e){if(/products\.js/.test(e.filename||""))window.PJERR=e.message+" (line "+e.lineno+")"})</script>
 <script src="products.js"></script>
 <script>
 const SITE=window.SITE||{};const ANN=SITE.announcement||"";
@@ -182,7 +183,7 @@ if(h.startsWith("p-")&&byId(h.slice(2)))html=prod(byId(h.slice(2)));
 else if(h.startsWith("j-")&&J.find(a=>a.id===h.slice(2)))html=art(J.find(a=>a.id===h.slice(2)));
 else if(h.startsWith("shop-")){cat=h.slice(5);html=V.shop(cat)}
 else if(V[h])html=V[h]("all");else html=`<div class="w sec"><h1>Page not found</h1><p>That page does not exist. <a href="#home">Return home</a>.</p></div>`;
-app.innerHTML=html;rotInit();document.title=titleOf(h);scrollTo(0,0);$("#nav").classList.remove("open");$("#mb").setAttribute("aria-expanded","false");
+app.innerHTML=(PERR?`<div class="ok" role="alert" style="margin:0">Site content could not be loaded${window.PJERR?": "+window.PJERR:""}. Check products.js.</div>`:"")+html;rotInit();document.title=titleOf(h);scrollTo(0,0);$("#nav").classList.remove("open");$("#mb").setAttribute("aria-expanded","false");
 document.querySelectorAll("nav a").forEach(a=>a.classList.toggle("on",a.getAttribute("href")==="#"+h.split("-")[0]));
 if($("#gr")){grid();["#fq","#fc","#fp","#fa","#fs"].forEach(s=>$(s).addEventListener("input",grid))}
 if($("#jl")){jl();["#jq","#jc"].forEach(s=>$(s).addEventListener("input",jl))}
@@ -191,7 +192,7 @@ function grid(){const q=$("#fq").value.toLowerCase(),c=$("#fc").value,mp=+$("#fp
 let l=PR.filter(p=>(!q||(p.n+p.d).toLowerCase().includes(q))&&(c==="all"||p.c===c)&&(!mp||p.p<=mp)&&(a==="all"||(p.st||"stock")===a));
 if(s==="l")l.sort((x,y)=>(x.p||0)-(y.p||0));if(s==="h")l.sort((x,y)=>(y.p||0)-(x.p||0));
 $("#cnt").textContent=l.length+(l.length===1?" product":" products");
-$("#gr").innerHTML=l.length?l.map(card).join(""):`<div class="ok" style="grid-column:1/-1">${PERR?"The product list could not be loaded. Check that products.js is in the same folder as index.html and has no typing mistakes. ":"No products match these filters. "}${c!=="all"&&!PR.some(p=>p.c===c)?"This category is in development. ":""}Clear a filter to see what is available.</div>`}
+$("#gr").innerHTML=l.length?l.map(card).join(""):`<div class="ok" style="grid-column:1/-1">${PERR?"The product list could not be loaded"+(window.PJERR?": "+window.PJERR:"")+". Check products.js for a typing mistake. ":"No products match these filters. "}${c!=="all"&&!PR.some(p=>p.c===c)?"This category is in development. ":""}Clear a filter to see what is available.</div>`}
 function jl(){const q=$("#jq").value.toLowerCase(),c=$("#jc").value,l=J.filter(a=>(!c||a.c===c)&&(!q||(a.n+a.d).toLowerCase().includes(q)));$("#jl").innerHTML=l.length?l.map(jCard).join(""):'<div class="ok">No articles match. Try a different search.</div>'}
 const em=v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 function nsub(e){e.preventDefault();const v=$("#ne").value.trim(),er=$("#nerr");er.textContent="";$("#nok").innerHTML="";
