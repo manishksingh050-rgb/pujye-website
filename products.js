@@ -4,6 +4,9 @@
 
 // Home page banners. Upload the images to the folder assets/Banners first.
 // If an image is missing, the site shows a PUJYE text slide instead.
+window.DOCTORS = [
+  { n: "Dr FULL NAME", q: "BAMS", sp: "Specialisation", exp: "5 years", reg: "Registration no. and council", img: "assets/Doctors/name.jpg" }
+];
 window.STORY = {
   title: "The people behind PUJYE",
   paras: [
