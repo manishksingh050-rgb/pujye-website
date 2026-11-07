@@ -4,7 +4,11 @@
 
 // Home page banners. Upload the images to the folder assets/Banners first.
 // If an image is missing, the site shows a PUJYE text slide instead.
-   window.DOCTORS = [
+  window.HOME_PANELS = {
+    market: { img: "assets/Home/my-products.jpg", alt: "Describe the photo" },
+    care:   { img: "assets/Home/my-care.jpg",    alt: "Describe the photo" }
+  };  
+ window.DOCTORS = [
      {
        n: "Dr Full Name",
        q: "BAMS",

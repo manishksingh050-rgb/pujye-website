@@ -80,6 +80,23 @@ footer h3{font-size:1rem;font-family:var(--sn);font-weight:600}
 .dots button[aria-current=true]::before{background:#d4b05a}
 .dots .pp{width:auto;padding:0 10px;margin-left:8px;color:#e6dcc0;font:500 .78rem var(--sn)}.dots .pp::before{display:none}
 @media(max-width:820px){.sl{aspect-ratio:4/3}.sl .tx{padding:20px 56px}.rb{width:38px;height:38px}.rb.pv{left:6px}.rb.nx{right:6px}}
+
+.dual{padding:56px 0 24px}.dual .hd{text-align:center;max-width:720px;margin:0 auto 32px}
+.dual h1{font-size:clamp(1.9rem,4.6vw,3rem);font-weight:400;color:var(--g);margin-bottom:.35em}.dual .sub{color:var(--mut);margin:0 auto}
+.pan2{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
+.pn{position:relative;display:flex;flex-direction:column;background:#F7F3E9;border:1px solid #C5A46D;border-radius:20px;padding:16px;color:#173F35;transition:transform .3s,box-shadow .3s}
+.pn.care{background:#E4EBE2}
+.pn .pi{position:relative;aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#E9E2D0;display:grid;place-items:center}
+.pn .pi img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.pn .pb{position:absolute;top:12px;left:12px;background:#F7F3E9;color:#173F35;border:1px solid #C5A46D;border-radius:20px;padding:2px 12px;font-size:.8rem}
+.pn h2{font-size:1.5rem;margin:22px 6px 6px;color:#173F35}
+.pn p{margin:0 6px 22px;color:#3d544d;max-width:none}
+.pn .go{margin-top:auto;display:flex;justify-content:center;align-items:center;gap:8px;background:#173F35;color:#F7F3E9;border:1px solid #173F35;border-radius:12px;padding:14px 18px;font:500 1rem var(--sn);text-decoration:none;transition:background .2s,border-color .2s}
+.pn .go::after{content:"";position:absolute;inset:0;border-radius:20px}
+.pn .go:hover,.pn .go:focus-visible{background:#0f2d26;border-color:#C5A46D}.pn .go span{display:inline-block;transition:transform .25s}
+@media(hover:hover){.pn:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(23,63,53,.16)}.pn:hover .pi img{transform:scale(1.04)}.pn:hover .go span{transform:translateX(4px)}}
+.dual .tg{text-align:center;color:var(--mut);font-size:.9rem;margin:24px 0 0}
+@media(max-width:760px){.pan2{grid-template-columns:1fr}.dual{padding:36px 0 8px}.pn h2{font-size:1.35rem}}
 .crumb{font-size:.85rem;color:var(--mut);margin:24px 0}.crumb a{color:inherit}
 </style></head><body>
 <div class="ann" id="ann"></div>
@@ -130,8 +147,7 @@ const catCards=()=>`<div class="cats">${CV().map(c=>`<a class="cat" href="#shop-
 const jCard=a=>`<a class="art" href="#j-${a.id}"><span class="m">${a.c}</span><h3>${a.n}</h3><p class="m" style="margin:0">${a.d}</p></a>`;
 const sub=()=>`<form id="nl" novalidate><label for="ne">Email address</label><div style="display:flex;gap:10px;flex-wrap:wrap"><input id="ne" type="email" autocomplete="email" style="flex:1 1 220px" aria-describedby="nerr"><button class="btn">Subscribe</button></div><div class="err" id="nerr" role="alert"></div><div class="m"><label style="display:flex;gap:8px;align-items:flex-start;font-size:.85rem"><input type="checkbox" id="nc" style="width:auto;margin-top:5px">I agree to receive occasional emails from PUJYE and understand I can unsubscribe at any time.</label></div><div id="nok"></div></form>`;
 const V={
-home:()=>`${rot()}<div class="w hero"><div><h1>Thoughtfully made for everyday living.</h1><p style="font-size:1.1rem;color:var(--mut)">Discover a more considered approach to everyday essentials, inspired by nature and India’s rich traditions.</p><div class="cta"><a class="btn" href="#shop">Explore the Collection</a><a class="btn o" href="#story">Discover PUJYE</a></div><p class="m" style="margin-top:28px">Inspired by Nature. Designed for Life.</p></div>
-<div class="vis">${window.HERO_IMAGE?`<img src="${window.HERO_IMAGE}" alt="PUJYE" onerror="this.style.display='none'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">`:`<div class="disc"><img class="lg" alt="PUJYE meditating figure logo" width="260" height="267" src="${LOGO}"></div><small>Inspired by Nature. Designed for Life.</small>`}</div></div>
+home:()=>`${rot()}${dual()}
 <section class="sec alt"><div class="w two"><h2>An evolving Ayurvedic and lifestyle company.</h2><div><p>PUJYE began with fragrance and pooja products. It is growing into a wider range of personal care, home care and wellness essentials, one carefully developed product at a time.</p><p>We would rather show you what is ready and what is still being built than promise everything at once.</p></div></div></section>
 <section class="sec"><div class="w"><h2>Shop by category</h2><p class="m">Categories marked Coming soon are in development and cannot be purchased yet.</p>${catCards()}</div></section>
 <section class="sec alt"><div class="w"><h2>Featured products</h2><div class="grid">${PR.filter(p=>p.c!=="partner").map(card).join("")}</div>${foot}</div></section>${PR.some(p=>p.c==="partner")?`<section class="sec"><div class="w"><h2>From partner brands</h2><p class="m">Selected products from other brands, supplied and dispatched by our partners.</p><div class="grid">${PR.filter(p=>p.c==="partner").map(card).join("")}</div></div></section>`:""}
@@ -171,6 +187,10 @@ const DEF=[
 {h:"Rooted in tradition. Moving forward with purpose.",t:"The story of PUJYE, still being written.",l:"#story",b:"Read our story",bg:"#21503c"}];
 const BN=Array.isArray(window.BANNERS)&&window.BANNERS.length?window.BANNERS:DEF;
 function bnerr(i){if(i.dataset.d&&i.getAttribute("src")!==i.dataset.d){i.src=i.dataset.d;return}console.warn("PUJYE: banner image not found: "+i.getAttribute("src"));const sl=i.closest(".sl"),k=[...sl.parentNode.children].indexOf(sl),b=DEF[k%DEF.length];sl.style.background=b.bg;sl.innerHTML=`<div class="tx"><img src="${LOGO}" alt=""><h2>${b.h}</h2><p>${b.t}</p><a class="btn" href="${b.l}">${b.b}</a></div>`}
+function pnerr(i){const p=i.parentNode;i.remove();p.insertAdjacentHTML("afterbegin",'<img src="'+LOGO+'" alt="" style="width:30%;height:auto;opacity:.85">')}
+function dual(){const H=window.HOME_PANELS||{},m=H.market||{},c=H.care||{},nodoc=!(Array.isArray(window.DOCTORS)&&window.DOCTORS.length);
+const pn=(cls,o,def,alt,t,d,href,btn,badge)=>`<article class="pn ${cls}"><div class="pi"><img src="${o.img||def}" alt="${o.alt||alt}" loading="lazy" onerror="pnerr(this)">${badge?`<span class="pb">${badge}</span>`:""}</div><h2>${t}</h2><p>${d}</p><a class="go" href="${href}">${btn} <span aria-hidden="true">→</span></a></article>`;
+return`<section class="dual" aria-labelledby="dual-h"><div class="w"><div class="hd"><h1 id="dual-h">Two Ways to Experience PUJYE</h1><p class="sub">Discover thoughtful everyday essentials and personalised Ayurvedic wellness, all in one place.</p></div><div class="pan2">${pn("market",m,"assets/Home/marketplace.jpg","Candles, bottles and a gift box arranged on stone and moss","PUJYE Marketplace","Discover thoughtfully selected Ayurvedic, personal care, home care, fragrance, pooja and lifestyle products.","#shop","Explore Marketplace","")}${pn("care",c,"assets/Home/care.jpg","An Ayurvedic practitioner in consultation with a patient","PUJYE Care","Connect with qualified and registered Ayurvedic practitioners for personalised consultations and wellness guidance.","#care","Explore PUJYE Care",nodoc?(SITE.careStatus||"Launching soon"):"")}</div><p class="tg">Inspired by Nature. Designed for Life.</p></div></section>`}
 function rot(){const n=BN.length;return`<section id="rot" class="rot" aria-roledescription="carousel" aria-label="Featured"><div class="rt">${BN.map((b,i)=>`<div class="sl" role="group" aria-roledescription="slide" aria-label="${i+1} of ${n}"${b.bg?` style="background:${b.bg}"`:""}>${b.img?`<a href="${b.link||"#shop"}" style="position:absolute;inset:0" aria-label="${b.alt||"Featured banner"}"><img class="bi" data-d="${b.img}" src="${b.mimg&&innerWidth<=820?b.mimg:b.img}" alt="${b.alt||""}" onerror="bnerr(this)"></a>`:`<div class="tx"><img src="${LOGO}" alt=""><h2>${b.h}</h2><p>${b.t}</p><a class="btn" href="${b.l}">${b.b}</a></div>`}</div>`).join("")}</div>${n>1?`<button class="rb pv" aria-label="Previous slide">‹</button><button class="rb nx" aria-label="Next slide">›</button><div class="dots">${BN.map((b,i)=>`<button aria-label="Go to slide ${i+1}"></button>`).join("")}<button class="pp" aria-label="Pause slideshow">Pause</button></div>`:""}</section>`}
 function careInit(){const f=$("#cb");if(!f)return;const D=window.DOCTORS,ds=$("#bd"),ss=$("#bs"),go=t=>SITE.whatsapp?"https://wa.me/"+SITE.whatsapp+"?text="+encodeURIComponent(t):SITE.email?"mailto:"+SITE.email+"?subject="+encodeURIComponent(t):"";
 const cur=()=>ds.value===""?null:D[+ds.value];
