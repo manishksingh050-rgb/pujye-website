@@ -4,7 +4,12 @@
 
 // Home page banners. Upload the images to the folder assets/Banners first.
 // If an image is missing, the site shows a PUJYE text slide instead.
-  window.HOME_PANELS = {
+   window.CARE_VIDEO = {
+     src: "assets/Videos/care.mp4",
+     poster: "assets/Videos/care.jpg",
+     title: "About PUJYE Care"
+   }; 
+ window.HOME_PANELS = {
     market: { img: "assets/Home/my-products.jpg", alt: "Describe the photo" },
     care:   { img: "assets/Home/my-care.jpg",    alt: "Describe the photo" }
   };  
