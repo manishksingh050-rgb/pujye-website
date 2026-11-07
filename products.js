@@ -37,7 +37,6 @@ window.BANNERS = [
   { img: "assets/Banners/banner2.jpg", mimg: "assets/Banners/banner2-mobile.jpg", alt: "Describe the banner", link: "#story" }
 ];
 window.SITE = {
-   supabase: { url: "https://pnqwjikudtadgzwakckl.supabase.co", key: "sb_publishable_cCwGscJgenxKg4y7H2tAGQ_LKNzYsin" }
   countdown: {
     to: "2027-02-02T10:00:00+05:30",
     text: "First product launches in",
