@@ -4,7 +4,10 @@
 
 // Home page banners. Upload the images to the folder assets/Banners first.
 // If an image is missing, the site shows a PUJYE text slide instead.
-   window.CARE_VIDEO = {
+window.FOUNDATION = {
+  bg: "assets/Foundation/hero.jpg"
+};   
+window.CARE_VIDEO = {
      src: "assets/Videos/care.mp4",
      poster: "assets/Videos/care.jpg",
      title: "About PUJYE Care"
